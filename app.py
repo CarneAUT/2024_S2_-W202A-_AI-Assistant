@@ -1,6 +1,6 @@
 import streamlit as st
 
-main = st.Page("main.py", title="Main")
+main = st.Page("webpages/main.py", title="Main")
 summarize_content = st.Page("webpages/summarize_content.py", title="Summarize Course Content", icon=":material/add_circle:")
 mock_quiz = st.Page("webpages/mock_quiz.py", title="Mock Quizzes")
 study_plan = st.Page("webpages/study_plan.py", title="Study Plans")
