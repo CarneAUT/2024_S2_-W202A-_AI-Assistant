@@ -1,16 +1,21 @@
 import streamlit as st
+from pypdf import PdfReader
 
 # Upload files
-import streamlit as st
+st.header("Upload Files For The AI")
+st.write("You can upload either a pdf or docx file below for the AI to look through and summarise for your convenience. It cannot read words on images such as png or jpeg.")
 
-# Upload files
-st.header("This is the Upload File Page")
-st.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia mi eu arcu egestas posuere. Vivamus at nibh placerat, aliquet urna in, commodo velit. Nulla facilisi. Mauris a maximus diam. Maecenas elementum sed felis nec facilisis. Donec nibh orci, egestas eu dui a, tempor consequat magna.")
-
+# Create an uploader for files to be uploaded to.
 uploader = st.file_uploader(
-    "Upload Image", accept_multiple_files=False, help="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia mi eu arcu egestas posuere. Vivamus at nibh placerat, aliquet urna in, commodo velit. Nulla facilisi. Mauris a maximus diam. Maecenas elementum sed felis nec facilisis. Donec nibh orci, egestas eu dui a, tempor consequat magna.",
-    type=["png", "jpeg"] #File types allowed
+    "", accept_multiple_files=False, help="Only pdf or docx files can be accepted.",
+    type=["pdf", "docx"]  # File types allowed
 )
+
+# When a file is uploaded.
 if uploader is not None:
-    uploaded_image = uploader.read()
-    st.image(uploaded_image)
+    # Check if the file is a PDF
+    if uploader.type == "application/pdf":
+        reader = PdfReader(uploader)
+        text = ""
+        for page in reader.pages:
+            text += page.extract_text() + "\n"  # Extract text from each page
