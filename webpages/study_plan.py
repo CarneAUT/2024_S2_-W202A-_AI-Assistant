@@ -1,6 +1,4 @@
 import streamlit as st
-from pypdf import PdfReader
-from docx import Document
 from generate_text import *
 from prompts import *
 from read_file import *
@@ -11,7 +9,7 @@ st.header("Upload Files For The AI")
 
 # Create an uploader for files to be uploaded to.
 uploader = st.file_uploader(
-    "Upload course content to generate a summary",
+    "Upload course content to generate a study plan",
     type=["pdf", "docx"]  # File types allowed
 )
 
