@@ -4,7 +4,7 @@ from prompts import *
 from read_file import *
 
 # Upload files
-st.header("Upload Files For The AI")
+st.header("Summarize Course Content")
 
 # Create an uploader for files to be uploaded to.
 uploader = st.file_uploader(

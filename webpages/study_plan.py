@@ -4,7 +4,7 @@ from prompts import *
 from read_file import *
 
 # Upload files
-st.header("Upload Files For The AI")
+st.header("Create Study Plan")
 # st.write("You can upload either a pdf file below for the AI to look through and summarise for your convenience. It cannot read words on images such as png or jpeg.")
 
 # Create an uploader for files to be uploaded to.
