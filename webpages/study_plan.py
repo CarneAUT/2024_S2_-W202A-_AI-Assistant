@@ -2,7 +2,7 @@ import streamlit as st
 from pypdf import PdfReader
 from generate_text import *
 from prompts import *
-from webpages import main
+from functions.theme import *
 
 # Upload files
 st.header("Upload Files For The AI")
@@ -27,12 +27,10 @@ if uploader is not None:
 
 st.write(generate_text(text, study_plan))
 
-# Light/Dark Mode
-ms = st.session_state
-btn_face = ms.themes["light"]["button_face"] if ms.themes["current_theme"] == "light" else ms.themes["dark"][
-    "button_face"]
-st.button(btn_face, on_click=main.ChangeTheme)
-
-if ms.themes["refreshed"] == False:
+# Theme Change
+btn_face = ms.themes["light"]["button_face"] if ms.themes["current_theme"] == "light" else ms.themes["dark"] ["button_face"]
+st.button(btn_face, on_click = ChangeTheme)
+# Constant Refresh To Check The Current Theme Against New Theme
+if not ms.themes["refreshed"]:
     ms.themes["refreshed"] = True
     st.rerun()
