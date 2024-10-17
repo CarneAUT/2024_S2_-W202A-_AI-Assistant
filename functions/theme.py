@@ -7,17 +7,18 @@ if "themes" not in ms:
                  "refreshed": True,
 
                  "light": {"theme.base": "dark",
-                           "theme.backgroundColor": "black", # Background Colour, Primary Colour
-                           "theme.primaryColor": "#ebab66", # Button Outline colour
-                           "theme.secondaryBackgroundColor": "#ebab66", # Navbar/Button Backgrounds, Secondary Colour
-                           "theme.textColor": "white", # Text Colour
+                           "theme.backgroundColor": "#F7F7F7", # Background Colour, Primary Colour
+                           "theme.primaryColor": "#4285F4", # Button Outline colour
+                           "theme.secondaryBackgroundColor": "#E3E3E3", # Navbar/Button Backgrounds, Secondary Colour
+                           "theme.textColor": "#000000", # Text Colour
                            "button_face": "Dark Mode"}, # Text on Button
 
-                 "dark": {"theme.base": "light",
-                          "theme.backgroundColor": "white", # Background Colour, Primary Colour
-                          "theme.primaryColor": "#66e9eb", # Button Outline Colour
-                          "theme.secondaryBackgroundColor": "#66e9eb", # Navbar/Button Backgrounds, Secondary Colour
-                          "theme.textColor": "#0a1464", # Text Colour
+
+                 "dark": {"theme.base": "dark",
+                          "theme.backgroundColor": "#1E1E1E", # Background Colour, Primary Colour
+                          "theme.primaryColor": "#ebab66", # Button Outline Colour
+                          "theme.secondaryBackgroundColor": "#333333", # Navbar/Button Backgrounds, Secondary Colour
+                          "theme.textColor": "#FFFFFF", # Text Colour
                           "button_face": "Light Mode"}, # Text on Button
                  }
 

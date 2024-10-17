@@ -1,6 +1,11 @@
 import streamlit as st
 from functions.theme import *
 
+# Check if user is logged in
+if 'logged_in' not in st.session_state or not st.session_state.logged_in:
+    st.warning("Please log in/register to access the content.")
+    st.stop()
+
 st.title("👤Profile Settings Menu")
 selected_option = st.selectbox("Select an option", ["Overview", "Account", "Settings"])
 

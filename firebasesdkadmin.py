@@ -4,11 +4,11 @@ from firebase_admin import db
 
 cred = credentials.Certificate('firebase-sdk.json')
 
-firebase_admin.initialize_app(cred, {
-
-    'databaseURL': 'https://ai-assistant-2a4b8-default-rtdb.asia-southeast1.firebasedatabase.app/'
-
-})
+if not firebase_admin._apps:  # holds a dictionary of initialized apps
+    cred = credentials.Certificate('firebase-sdk.json')
+    firebase_admin.initialize_app(cred, {
+        'databaseURL': 'https://ai-assistant-2a4b8-default-rtdb.asia-southeast1.firebasedatabase.app/'
+    })
 
 ref = db.reference('/')
 
@@ -38,3 +38,16 @@ def register_user(username, password, email):
     }
     ref.push(new_user)
     return "User registered successfully"
+
+
+def login_user(email, password):
+    existing_users = ref.get()
+ # login validation checks fb database
+    if not existing_users:
+        return "No users found"
+
+    for user in existing_users.values():
+        if user['email'] == email and user['password'] == password:
+            return "Login successful"
+
+    return "Invalid email or password"
