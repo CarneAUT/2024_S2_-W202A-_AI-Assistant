@@ -4,6 +4,7 @@ import streamlit as st
 # Show a navigation menu for authenticated users
 def authenticated_menu():
     st.sidebar.page_link("pages/main.py", label="Main")
+    st.sidebar.page_link("pages/chat.py", label="Chat")
     st.sidebar.page_link("pages/mock_quiz.py", label="Mock Quiz")
     st.sidebar.page_link("pages/study_plan.py", label="Study Plan")
     st.sidebar.page_link("pages/summarize_content.py", label="Summarize Content")

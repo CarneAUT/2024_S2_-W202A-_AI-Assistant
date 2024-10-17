@@ -110,3 +110,13 @@ Example:
 
 "Welcome to your personalized study plan! To achieve academic success, let's break down our goals into manageable tasks and create a schedule that suits your learning style. Here's a suggested plan for the next 6 weeks..."
 """
+
+chat_prompt = """
+You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say that you don't know. Use three sentences maximum and keep the answer concise.
+
+Question: {question} 
+
+Context: {context} 
+
+Answer:
+"""
