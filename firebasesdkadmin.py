@@ -39,7 +39,32 @@ def register_user(username, password, email):
     ref.push(new_user)
     return "User registered successfully"
 
+
+def log_in(username, password):
+    existing_users = ref.get()
+
+    for user in existing_users.values():
+        if user['username'] == username and user['password'] == password:
+                return "Successfully Logged in"
+        else:
+            return "This is not a registered account"
+
+
 if __name__ == '__main__':
+    ''' USER TEST 2 FAIL '''
+    # # Fail: user1 does not exist
+    # result = log_in("user1", "pass2")
+    # print(f"Test 1: {result}")
+    #
+    # # Fail: user2's password is 'pass2'
+    # result = log_in("user2", "pass1")
+    # print(f"Test 2: {result}")
+
+
+    ''' USER TEST 2 PASS '''
+    # # Pass:
+    # result = log_in("user2", "pass2")
+    # print(f"Test 1: {result}")
 
     ''' USER TEST 1 FAIL '''
     # # Pass: There are no in existing users in the database with the same username and email
