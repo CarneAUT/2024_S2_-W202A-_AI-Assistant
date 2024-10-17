@@ -1,10 +1,21 @@
 import streamlit as st
+from pages.sign_in import sign_in_page
+from pages.main import main
+from menu import unauthenticated_menu, authenticated_menu
 
-main = st.Page("webpages/main.py", title="Main")
-summarize_content = st.Page("webpages/summarize_content.py", title="Summarize Course Content", icon=":material/add_circle:")
-mock_quiz = st.Page("webpages/mock_quiz.py", title="Mock Quizzes")
-study_plan = st.Page("webpages/study_plan.py", title="Study Plans")
-profile = st.Page("webpages/profile.py", title="Profile")
 
-pg = st.navigation([main, summarize_content, mock_quiz, study_plan, profile])
-pg.run()
+def app():
+    if 'current_page' not in st.session_state:
+        st.session_state['current_page'] = "sign_in"
+
+    if 'logged_in' not in st.session_state:
+        st.session_state['logged_in'] = False
+
+    if st.session_state['current_page'] == "sign_in":
+        sign_in_page()
+    elif st.session_state['current_page'] == "main":
+        main()
+
+
+if __name__ == "__main__":
+    app()
