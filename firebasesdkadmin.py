@@ -38,3 +38,25 @@ def register_user(username, password, email):
     }
     ref.push(new_user)
     return "User registered successfully"
+
+if __name__ == '__main__':
+
+    ''' USER TEST 1 FAIL '''
+    # # Pass: There are no in existing users in the database with the same username and email
+    # result = register_user("user2", "pass2", "email2")
+    # print(f"Test 1: {result}")
+    #
+    # # Fail: A user alr has a username named user2 in the database
+    # result = register_user("user2", "pass2", "email2")
+    # print(f"Test 2: {result}")
+    #
+    # # Fail: A user alr has an email named email2 in the database
+    # result = register_user("user3", "pass2", "email2")
+    # print(f"Test 3: {result}")
+
+    ''' USER TEST 1 PASS '''
+    # # Pass: There are no in existing users in the database with the same username and email
+    # result = register_user("user1", "pass1", "email1")
+    # print(f"Test 1: {result}")
+
+
