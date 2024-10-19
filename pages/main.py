@@ -47,7 +47,7 @@ def main():
 
     btn_face = ms.themes["light"]["button_face"] if ms.themes["current_theme"] == "light" else ms.themes["dark"][
         "button_face"]
-    st.sidebar.button(btn_face, on_click=ChangeTheme)
+    st.button(btn_face, on_click=ChangeTheme) # Was st.sidebar.button
 
     if not ms.themes["refreshed"]:
         ms.themes["refreshed"] = True

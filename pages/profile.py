@@ -7,8 +7,12 @@ def profile():
     # Sidebar for logged in users
     authenticated_menu()
 
-    st.title("👤Profile Settings Menu")
+    st.title(":bust_in_silhouette:Profile Settings Menu")
     selected_option = st.selectbox("Select an option", ["Overview", "Account", "Settings"])
+
+    if st.button("Log out"):
+        st.switch_page("pages/sign_in.py")
+
 
     # Theme Change
     btn_face = ms.themes["light"]["button_face"] if ms.themes["current_theme"] == "light" else ms.themes["dark"]["button_face"]
