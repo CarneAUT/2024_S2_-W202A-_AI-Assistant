@@ -17,6 +17,7 @@ def read_docx(file):
     for para in doc.paragraphs:
         content.append(para.text)
     return '\n'.join(content)
+
 def extract_text(uploaded_file):
     text = ""
 
