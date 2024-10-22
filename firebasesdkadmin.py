@@ -1,15 +1,18 @@
 import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import db
+from firebase_admin import credentials, db, auth
+
 
 def initialize_app():
-    cred = credentials.Certificate('firebase-sdk.json')
+         if not firebase_admin._apps:
+        cred = credentials.Certificate('firebase-sdk.json')
 
-    firebase_admin.initialize_app(cred, {
+        firebase_admin.initialize_app(cred, {
 
-        'databaseURL': 'https://ai-assistant-2a4b8-default-rtdb.asia-southeast1.firebasedatabase.app/'
 
-    })
+            'databaseURL': 'https://ai-assistant-2a4b8-default-rtdb.asia-southeast1.firebasedatabase.app/'
+
+
+        })
 
     return db.reference('/')
 
@@ -52,6 +55,14 @@ def log_in(username, password):
                 return True
     return False
 
+def reset_password_email(user_email):
+    try:
+        link = auth.generate_password_reset_link(user_email)
+        print(f"Password reset email sent to {user_email}: {link}")
+        return True
+    except Exception as e:
+        print(f"Error sending password reset email: {e}")
+        return False
 
 # if __name__ == '__main__':
 #     ''' USER TEST 2 FAIL '''
